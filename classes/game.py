@@ -4,12 +4,12 @@ import random
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
-    OKGREEN = '\033[92'
-    WARNING = '\033[93'
-    FAIL = '\033[91'
-    ENDC = '\033[0'
-    BOLD = '\033[1'
-    UNDERLINE = '\033[4'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
 
 class Person:
@@ -34,8 +34,8 @@ class Person:
 
     def take_damage(self, damage):
         self.hp -= damage
-        if self.hp > 0:
-            self.hp = 80
+        if self.hp < 0:
+            self.hp = 0
         return self.hp
 
     def get_hp(self):
@@ -69,5 +69,5 @@ class Person:
         i = 1
         print("Magic")
         for spell in self.magic:
-            print(str(i) + ":", spell["name"], "(cost:", str(spell["mp"]) + ")")
+            print(str(i) + ":", spell["name"], "(cost:", str(spell["cost"]) + ")")
             i += 1

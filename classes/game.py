@@ -85,6 +85,34 @@ class Person:
                   " (x" + str(item["quantity"]) + ")")
             i += 1
 
+    def get_enemy_stats(self):
+        hp_bar = ""
+        bar_ticks = (self.hp / self.maxhp) * 50
+
+        while bar_ticks > 0:
+            hp_bar += "█"
+            bar_ticks -= 1
+        while len(hp_bar) < 50:
+            hp_bar += " "
+
+        hp_string = str(self.hp) + "/" + str(self.maxhp)
+        current_hp = ""
+        if len(hp_string) < 10:
+            decreased = 10 - len(hp_string)
+
+            while decreased > 0:
+                current_hp += " "
+                decreased -= 1
+
+            current_hp += hp_string
+        else:
+            current_hp = hp_string
+
+        print("                     __________________________________________________")
+        print(
+            bcolors.BOLD + self.name + "    " +
+            current_hp + "|" + bcolors.FAIL + hp_bar + bcolors.ENDC + "|")
+
     def get_stats(self):
         hp_bar = ""
         bar_ticks = (self.hp / self.maxhp) * 100 / 4

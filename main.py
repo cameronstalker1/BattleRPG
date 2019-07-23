@@ -44,9 +44,8 @@ i = 0
 print(bcolors.FAIL + bcolors.BOLD + "AN ENEMY ATTACKS" + bcolors.ENDC)
 
 while running:
-    print("==========================")
 
-    print("\n \n")
+    print("\n")
     print("NAME       HP                                    MP")
 
     for player in players:

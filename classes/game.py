@@ -60,6 +60,16 @@ class Person:
     def reduce_mp(self, cost):
         self.mp -= cost
 
+    def choose_target(self, enemies):
+        i = 1
+        print("\n" + bcolors.BOLD + bcolors.FAIL + "TARGET:" + bcolors.ENDC)
+        for enemy in enemies:
+            if enemy.get_hp() != 0:
+                print("        " + str(i) + ".", enemy.name)
+                i += 1
+        choice = int(input("    Choose target:")) - 1
+        return choice
+
     def choose_action(self):
         i = 1
         print("\n" + "    " + bcolors.BOLD + self.name + bcolors.ENDC)
@@ -70,7 +80,6 @@ class Person:
 
     def choose_magic(self):
         i = 1
-
         print("\n" + bcolors.OKBLUE + bcolors.BOLD + "MAGIC:" + bcolors.ENDC)
         for spell in self.magic:
             print("        " + str(i) + ":", spell.name, "(cost:", str(spell.cost) + ")")
@@ -78,7 +87,6 @@ class Person:
 
     def choose_item(self):
         i = 1
-
         print("\n" + bcolors.OKGREEN + bcolors.BOLD + "ITEMS:" + bcolors.ENDC)
         for item in self.items:
             print("        " + str(i) + ".", item["item"].name, ":", item["item"].description,

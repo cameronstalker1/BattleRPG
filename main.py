@@ -35,9 +35,10 @@ player1 = Person("Aldo :", 3260, 132, 280, 34, player_spells, player_items)
 player2 = Person("Eve  :", 4160, 188, 300, 34, player_spells, player_items)
 player3 = Person("Robot:", 3089, 174, 300, 34, player_spells, player_items)
 
-enemy = Person("Dragon ", 110, 701, 525, 25, [], [])
-enemy2 = Person("Dragon 2", 110, 130, 560, 325, [], [])
-enemy3 = Person("Dragon 3", 110, 130, 560, 325, [], [])
+# Instantiate Enemies
+enemy = Person("Dragon  ", 1200, 701, 525, 25, [], [])
+enemy2 = Person("Dragon 2", 1000, 130, 560, 325, [], [])
+enemy3 = Person("Dragon 3", 810, 130, 560, 325, [], [])
 
 players = [player1, player2, player3]
 enemies = [enemy, enemy2, enemy3]
@@ -76,7 +77,6 @@ while running:
             if enemies[enemy].get_hp() == 0:
                 print(bcolors.FAIL + bcolors.BOLD + enemies[enemy].name + " was killed" + bcolors.ENDC)
                 del enemies[enemy]
-
 
         elif index == 1:
             player.choose_magic()
@@ -158,6 +158,9 @@ while running:
     enemy_damage = enemies[0].generate_damage()
     players[target].take_damage(enemy_damage)
     print("Enemy attacks for:", enemy_damage)
+
+
+# End functionality
 
     defeated_enemies = 0
     defeated_players = 0

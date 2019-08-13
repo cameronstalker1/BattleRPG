@@ -1,5 +1,4 @@
 import random
-from .magic import Spell
 
 
 class bcolors:
